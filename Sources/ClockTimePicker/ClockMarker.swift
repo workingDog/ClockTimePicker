@@ -14,7 +14,7 @@ public struct ClockMarker: Hashable {
     let degrees: Double
     let label: String
     
-    init(degrees: Double, label: String) {
+    public init(degrees: Double, label: String) {
         self.degrees = degrees
         self.label = label
     }

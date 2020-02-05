@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ClockNoHands: View {
+public struct ClockNoHands: View {
     
     @Binding var clockDate: Date
     
@@ -23,7 +23,7 @@ struct ClockNoHands: View {
     @State var minuteSet3Highlight = Array(repeating: false, count: 20)
     
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             if self.handType == .hour {
                 self.hourDisplay(geometry)

@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ClockLabelView: View {
+public struct ClockLabelView: View {
     
     let marker: ClockMarker
     let paddingValue: CGFloat
     
     @ObservedObject var options = ClockLooks()
     
-    var body: some View {
+    public var body: some View {
         VStack {
             Text(marker.label)
                 .foregroundColor(options.labelColor)

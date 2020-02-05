@@ -9,7 +9,6 @@
 import SwiftUI
 
 
-
 enum HandType {
     case hour
     case minute

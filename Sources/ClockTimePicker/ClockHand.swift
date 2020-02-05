@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct ClockHand: View {
+public struct ClockHand: View {
     
     @Binding var clockDate: Date    // the date
     let handType: HandType          // hour or minute
@@ -31,7 +31,7 @@ struct ClockHand: View {
     
     @State private var prevHour = 0
 
-    var body: some View {
+    public var body: some View {
         
         let drag = DragGesture()
             .onChanged { value in

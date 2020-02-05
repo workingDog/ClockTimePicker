@@ -9,12 +9,12 @@
 import SwiftUI
 
 
-struct ClockFace: View {
+public struct ClockFace: View {
     
     @Binding var period: Int
     @ObservedObject var options = ClockLooks()
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             
             // the minutes dot marks

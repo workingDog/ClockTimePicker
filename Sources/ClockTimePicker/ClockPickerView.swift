@@ -14,7 +14,7 @@ enum HandType {
     case minute
 }
 
-struct ClockPickerView : View {
+public struct ClockPickerView : View {
     
     @Binding var clockDate: Date
     @ObservedObject var options = ClockLooks()
@@ -37,7 +37,7 @@ struct ClockPickerView : View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: self.options.ampmNormalColor], for: .normal)
     }
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Circle().stroke(self.options.circleColor, lineWidth: self.options.circleWidth)

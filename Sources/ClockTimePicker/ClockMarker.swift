@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct ClockMarker: Hashable {
+public struct ClockMarker: Hashable {
     
     let degrees: Double
     let label: String

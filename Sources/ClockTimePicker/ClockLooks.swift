@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 
-class ClockLooks : ObservableObject {
+public class ClockLooks : ObservableObject {
     
     // clock type
     @Published public var withHands: Bool = true

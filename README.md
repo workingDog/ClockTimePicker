@@ -26,7 +26,7 @@ To customise the looks of the clock, use
     
 ## Clock without hands
 
-**ClockPicker** can also display a clock without hands, more suited to iPad and Mac. To display it set the options as:
+**ClockTimePicker** can also display a clock without hands, more suited to iPad and Mac. To display it set the options as:
 
     options.withHands = false    
 

@@ -71,4 +71,5 @@ public class ClockLooks : ObservableObject {
 
     @Published public var impactFeedbackOn: Bool = false
     
+    public init() {}
 }

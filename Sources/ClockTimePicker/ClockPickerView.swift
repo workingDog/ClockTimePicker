@@ -9,6 +9,7 @@
 import SwiftUI
 
 
+
 enum HandType {
     case hour
     case minute
@@ -28,7 +29,7 @@ public struct ClockPickerView : View {
     let periodTypes = ["AM", "PM"]
     let formatter = DateFormatter()
     
-    init(date: Binding<Date>, options: ClockLooks = ClockLooks()) {
+    public init(date: Binding<Date>, options: ClockLooks = ClockLooks()) {
         self._clockDate = date
         self.options = options
         // to control the AM:PM picker colors

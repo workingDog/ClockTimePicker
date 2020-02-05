@@ -6,7 +6,7 @@
 **ClockTimePicker** is a SwiftUI view that displays a clock with the hour and minutes hands.
 These hands can be dragged around the clock face to select the desired hour and minutes of your date.
 
-To use, include the files in the "Sources/ClockTimePicker" folder into your project or use Swift Package manager and add this lib  dependency. See [ClockPicker](https://github.com/workingDog/ClockPicker) for an example use.
+To use, include the files in the "Sources/ClockTimePicker" folder into your project or use Swift Package Manager and add this lib  dependency and **import ClockTimePicker**. See [ClockPicker](https://github.com/workingDog/ClockPicker) for an example use.
 
 The main element is **ClockPickerView.swift**.
 

@@ -33,9 +33,3 @@ To customise the looks of the clock, use
 To pick the hour and minutes, tap on the center **hour : minute** to display either the hours or the minutes set.
 
 Note: adjust the sizes and colors using **options** to suit your device.
-
-![im01](Images/picture1.png)  ![im03](Images/picture3.png) 
-
-
-![im04](Images/picture4.png)   ![im05](Images/picture5.png)  
-

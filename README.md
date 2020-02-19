@@ -39,7 +39,7 @@ Include the files in the "Sources/ClockTimePicker" folder into your project or u
 
 ### Swift Package Manager
 
-Create a Package.swift file and add a dependency to:
+Create a Package.swift file for your project and add a dependency to:
 
     dependencies: [
       .package(url: "https://github.com/workingDog/ClockTimePicker.git", from: "1.0.3")

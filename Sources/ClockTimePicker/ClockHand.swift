@@ -54,7 +54,7 @@ public struct ClockHand: View {
                 path.move(to: center)
                 let length = self.handRatio * self.getRadius(geometry.size)
                 let theTip = self.getNewPoint(center, length)
-                let handlePoint = self.getNewPoint(center, length-(length * 0.3))
+                let handlePoint = self.getNewPoint(center, length * 0.6)
                 path.addLine(to: theTip)
                 // tricky business
                 DispatchQueue.main.async {

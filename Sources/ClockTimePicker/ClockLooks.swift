@@ -8,6 +8,11 @@
 
 import Foundation
 import SwiftUI
+#if os(iOS)
+    import UIKit
+#elseif os(OSX)
+    import AppKit
+#endif
 
 
 public class ClockLooks : ObservableObject {
@@ -59,12 +64,18 @@ public class ClockLooks : ObservableObject {
     // the text showing the hour and minutes at the center of the clock
     @Published public var centerTextFont: Font = Font.custom("Helvetica", size: 20)
     @Published public var centerBackgroundColor: Color = Color.primary
-    @Published public var centerForegroundColor: Color = Color(UIColor.systemBackground)
     
-    // AM:PM
-    @Published public var ampmSelectedColor: UIColor = UIColor.white
-    @Published public var ampmNormalColor: UIColor = UIColor.black
-    @Published public var ampmTintColor: UIColor = UIColor.black
+    #if os(iOS)
+        // AM:PM
+        @Published public var ampmSelectedColor: UIColor = UIColor.white
+        @Published public var ampmNormalColor: UIColor = UIColor.black
+        @Published public var ampmTintColor: UIColor = UIColor.black
+    
+        @Published public var centerForegroundColor: Color = Color(.systemBackground)
+    #else
+        @Published public var centerForegroundColor: Color = Color(NSColor.windowBackgroundColor)
+    #endif
+
     // x and y offset from clock center, of the AM:PM picker as the proportion of the clock size
     @Published public var ampmPickerXoffset = CGFloat(0.0)
     @Published public var ampmPickerYoffset = CGFloat(0.06)

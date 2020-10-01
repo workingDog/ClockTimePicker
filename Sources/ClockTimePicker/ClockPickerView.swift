@@ -31,10 +31,12 @@ public struct ClockPickerView : View {
     public init(date: Binding<Date>, options: ClockLooks = ClockLooks()) {
         self._clockDate = date
         self.options = options
-        // to control the AM:PM picker colors
-        UISegmentedControl.appearance().selectedSegmentTintColor = self.options.ampmTintColor
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: self.options.ampmSelectedColor], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: self.options.ampmNormalColor], for: .normal)
+        // to control the AM:PM picker colors in ios
+        #if os(iOS)
+            UISegmentedControl.appearance().selectedSegmentTintColor = self.options.ampmTintColor
+            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: self.options.ampmSelectedColor], for: .selected)
+            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: self.options.ampmNormalColor], for: .normal)
+        #endif
     }
     
     public var body: some View {
@@ -53,7 +55,7 @@ public struct ClockPickerView : View {
         }
     }
     
-    var clockWithHands: some View {
+    public var clockWithHands: some View {
         Group {
             ClockFace(period: self.$period, options: self.options)
             ClockHand(clockDate: self.$clockDate, handType: .hour, period: self.$period, options: self.options)
@@ -62,7 +64,7 @@ public struct ClockPickerView : View {
         }
     }
     
-    var clockWithoutHands: some View {
+    public var clockWithoutHands: some View {
         Group {
             ClockNoHands(clockDate: self.$clockDate, period: self.$period, options: self.options, handType: self.$hand)
             HStack {
@@ -73,7 +75,7 @@ public struct ClockPickerView : View {
         }
     }
     
-    var periodPicker: some View {
+    public var periodPicker: some View {
         Picker(selection: Binding<Int>(
             get: { self.period }, set: { self.adjustClockDate($0) }), label: Text("")) {
                 ForEach(0..<periodTypes.count) {
@@ -82,7 +84,7 @@ public struct ClockPickerView : View {
         }.pickerStyle(SegmentedPickerStyle()).scaledToFit()
     }
     
-    func asHours() -> String {
+    public func asHours() -> String {
         var theHours = Calendar.current.component(.hour, from: clockDate)
         if period == 1 {
             if theHours < 12 {
@@ -92,18 +94,18 @@ public struct ClockPickerView : View {
         return String(theHours)
     }
     
-    func asMinutes() -> String {
+    public func asMinutes() -> String {
         formatter.dateFormat = "mm"
         return formatter.string(from: clockDate)
     }
     
-    func asText() -> String {
+    public func asText() -> String {
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: clockDate)
     }
     
     // change the hour according to the period setting
-    func adjustClockDate(_ value: Int) {
+    public func adjustClockDate(_ value: Int) {
         self.period = value
         let theMinutes = Calendar.current.component(.minute, from: clockDate)
         var theHours = Calendar.current.component(.hour, from: clockDate)
